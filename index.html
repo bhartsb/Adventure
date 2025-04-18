@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure MVP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Video Player Area -->
+        <div id="video-container">
+            <!-- Updated video source path -->
+            <video id="intro-video" src="assets/EncounterIntro.mp4" autoplay muted playsinline>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Area below video, holding chat and status -->
+        <div id="main-interface" class="hidden"> <!-- Initially hidden -->
+            <!-- Chat Interface Placeholder -->
+            <div id="chat-container">
+                <p>Chat Area Placeholder...</p>
+                <!-- Chat log will go here -->
+                <!-- Input field will go here -->
+            </div>
+
+            <!-- Status Pane Placeholder -->
+            <div id="status-container">
+                <p>Status Pane Placeholder...</p>
+                <!-- Player stats will go here -->
+                <!-- Foe stats will go here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

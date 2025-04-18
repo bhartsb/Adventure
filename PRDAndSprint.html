@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure MVP: PRD & Sprint Plan</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #343a40;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #495057;
+            font-size: 2.2em;
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            border-bottom: none;
+        }
+        ul, ol {
+            margin-bottom: 1em;
+            padding-left: 2em; /* Added padding for better indentation */
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        ul ul, ol ol, ul ol, ol ul {
+             margin-top: 0.5em; /* Space before nested list */
+             margin-bottom: 0.5em; /* Space after nested list */
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Wrap long lines */
+            word-wrap: break-word; /* Break words if necessary */
+            font-size: 0.9em; /* Slightly smaller font for code */
+        }
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.95em; /* Consistent font size for inline/block */
+            background-color: #e9ecef; /* Slight background for inline code */
+            padding: 0.2em 0.4em; /* Padding for inline code */
+            border-radius: 3px;
+        }
+        pre code {
+            background-color: transparent; /* No double background */
+            padding: 0; /* No extra padding */
+            border-radius: 0;
+            white-space: pre-wrap; /* Ensure wrapping within pre */
+            word-wrap: break-word;
+        }
+        strong {
+            font-weight: 600;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ced4da;
+            margin: 2em 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            font-weight: 600;
+        }
+        /* Add a separator style for clarity */
+        .section-separator {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(73, 80, 87, 0.75), rgba(0, 0, 0, 0));
+            margin: 3em 0;
+        }
+        .phase-separator {
+             margin: 1.5em 0;
+             border: 0;
+             height: 1px;
+             background-color: #e9ecef;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Adventure MVP: PRD & Sprint Plan</h1>
+
+        <hr class="section-separator">
+
+        <!-- PRD Section -->
+        <section id="prd">
+            <h2>Product Requirements Document: Adventure (MVP 1.0 - Farmstead Raid)</h2>
+
+            <p><strong>Version:</strong> 1.0</p>
+            <p><strong>Date:</strong> 2024-05-16</p>
+
+            <h3>1. Introduction</h3>
+            <ul>
+                <li><strong>Product:</strong> Adventure - A Javascript web application combining video storytelling with an LLM-powered text-based adventure encounter.</li>
+                <li><strong>Vision:</strong> To create immersive, interactive narrative experiences driven by AI, starting with classic fantasy adventure tropes.</li>
+                <li><strong>Scope (MVP 1.0):</strong> This document outlines the requirements for the initial Proof of Concept (POC). The focus is on demonstrating the core gameplay loop for a specific scenario: A 7th level Fighter (Garen) intervenes during or immediately after a raid on a farmstead by 3 Orcs and 1 Ogre who have captured the inhabitants. The loop includes: Video Introduction -> LLM-driven Text Encounter (Combat Focus) -> Video Conclusion (Win/Loss). It utilizes Javascript, Tailwind CSS for styling, and integrates with an LLM (OpenAI/Groq) as the Game Master (GM), loosely based on D&D 3.0 rules. Three.js is included in the tech stack, but its initial role will be minimal (e.g., potentially setting up a basic scene or placeholder, not core gameplay mechanics for this MVP).</li>
+            </ul>
+
+            <h3>2. Goals</h3>
+            <ul>
+                <li>Develop a functional web application demonstrating the core gameplay loop with the defined Farmstead Raid encounter.</li>
+                <li>Successfully integrate an LLM (OpenAI or Groq) to act as a responsive GM for this single combat encounter.</li>
+                <li>Implement a basic text-based chat interface for player interaction with the LLM GM.</li>
+                <li>Display dynamic player (Garen) and foe (Orcs, Ogre) status information during the encounter.</li>
+                <li>Implement simplified D&D 3.0-based combat mechanics (Attack Rolls vs. AC, Damage) using the defined character/foe stats.</li>
+                <li>Establish foundational JSON structures for the specific player character, foes, and LLM instructions.</li>
+                <li>Validate the technical feasibility of the core concept within a short timeframe (&lt; 1 day development target).</li>
+            </ul>
+
+            <h3>3. Target Audience</h3>
+            <ul>
+                <li><strong>Primary (MVP):</strong> Internal Development Team (for testing and validation).</li>
+                <li><strong>Secondary (Future):</strong> Single players interested in text-based RPGs and interactive stories.</li>
+            </ul>
+
+            <h3>4. Key Features (Functional Requirements)</h3>
+            <ul>
+                <li><strong>F1: Video Playback Module</strong>
+                    <ul>
+                        <li><strong>F1.1:</strong> Display and play a specified <code>.mp4</code> video file upon game start (Introduction Video depicting the farmstead raid aftermath/discovery).</li>
+                        <li><strong>F1.2:</strong> Automatically stop the Introduction Video upon completion.</li>
+                        <li><strong>F1.3:</strong> Display and play a specified <code>.mp4</code> video file upon encounter conclusion (Win Video - e.g., Garen surveying the scene; Loss Video - e.g., Garen overwhelmed).</li>
+                    </ul>
+                </li>
+                <li><strong>F2: Chat Interface Module</strong>
+                    <ul>
+                        <li><strong>F2.1:</strong> Display text output from the LLM GM in a ticker-tape style (text appears sequentially).</li>
+                        <li><strong>F2.2:</strong> Provide a simple text input field for the player to type commands (e.g., "attack Grok", "attack Ogre", focus on <code>attack [target_id]</code>).</li>
+                        <li><strong>F2.3:</strong> Submit player input to the Game Logic Engine upon pressing Enter or clicking a Submit button.</li>
+                        <li><strong>F2.4:</strong> Clear the input field after submission.</li>
+                        <li><strong>F2.5:</strong> Scroll automatically to show the latest messages.</li>
+                    </ul>
+                </li>
+                <li><strong>F3: LLM Game Master Integration</strong>
+                    <ul>
+                        <li><strong>F3.1:</strong> Service to communicate with the chosen LLM API (OpenAI or Groq). Configuration for API key required.</li>
+                        <li><strong>F3.2:</strong> Construct prompts for the LLM based on game state, player actions, Garen's data, Orc/Ogre data, and predefined LLM Instructions (See Section 6.4). The prompt must clearly list the available targets by ID/Name.</li>
+                        <li><strong>F3.3:</strong> Parse LLM responses to extract narrative text, NPC actions (Orcs/Ogre attacking Garen), and potential game state changes.</li>
+                        <li><strong>F3.4:</strong> The LLM will narrate the scene (burning farmstead, captives, foe positions), describe foe actions, respond to player actions, and determine outcomes based on simplified rules provided in the prompt.</li>
+                    </ul>
+                </li>
+                <li><strong>F4: Encounter Logic Engine</strong>
+                    <ul>
+                        <li><strong>F4.1:</strong> Manage the state of the encounter (e.g., <code>PRE_ENCOUNTER</code>, <code>PLAYER_TURN</code>, <code>GM_TURN</code>, <code>POST_ENCOUNTER_WIN</code>, <code>POST_ENCOUNTER_LOSS</code>).</li>
+                        <li><strong>F4.2:</strong> Initiate the encounter after the intro video stops, triggering the first GM message setting the scene.</li>
+                        <li><strong>F4.3:</strong> Process player commands (primarily 'attack [target_id]'). Validate target ID exists and is not defeated.</li>
+                        <li><strong>F4.4:</strong> Implement simplified D&D 3.0 combat using data from JSON:
+                            <ul>
+                                <li>Player Attack: Roll d20 + Garen's <code>attackBonus</code> vs. Target Foe's <code>ac</code>. If hit, roll Garen's <code>damage</code> dice.</li>
+                                <li>GM (Foe) Attack: LLM determines foe action (likely 'attack Garen'). If attacking, the logic engine rolls d20 + Foe's <code>attackBonus</code> vs. Garen's <code>ac</code>. If hit, roll Foe's <code>damage</code> dice. (Simple turn order: Player -> Orc1 -> Orc2 -> Orc3 -> Ogre -> Player...)</li>
+                            </ul>
+                        </li>
+                        <li><strong>F4.5:</strong> Update PC and Foe HP based on damage dealt. Handle negative HP (set to 0).</li>
+                        <li><strong>F4.6:</strong> Update Foe <code>condition</code> based on HP percentage using <code>conditionMapping.json</code> (See Section 6.3). Update <code>isDefeated</code> flag when HP reaches 0.</li>
+                        <li><strong>F4.7:</strong> Determine encounter end conditions: Garen's HP &lt;= 0 -> Loss; All Foes (<code>isDefeated === true</code>) -> Win.</li>
+                        <li><strong>F4.8:</strong> Trigger the appropriate Win/Loss video (F1.3) upon encounter end.</li>
+                    </ul>
+                </li>
+                <li><strong>F5: Status Display Module</strong>
+                    <ul>
+                        <li><strong>F5.1:</strong> Display Player Character (Garen) stats: Current HP, Max HP, AC. These values must update dynamically.</li>
+                        <li><strong>F5.2:</strong> Display Foe stats for each <em>active</em> (not defeated) foe: Name, Type, AC, Condition (Text/Emoji representation). Foe condition updates dynamically. Defeated foes may be hidden or marked clearly.</li>
+                    </ul>
+                </li>
+                <li><strong>F6: Dice Rolling Utility</strong>
+                    <ul>
+                        <li><strong>F6.1:</strong> Provide functions to simulate rolling standard D&D dice (d4, d6, d8, d10, d12, d20) and parse dice strings (e.g., "1d8+3").</li>
+                        <li><strong>F6.2:</strong> When a roll is triggered, display a brief text-based animation in the chat log (e.g., "Garen attacks Grok (Rolls d20)... 🎲✨").</li>
+                        <li><strong>F6.3:</strong> Display the numerical result clearly in the chat log (e.g., "...Result: 18! Hit!"). Include damage rolls similarly.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>5. User Interface (UI) / User Experience (UX)</h3>
+            <ul>
+                <li><strong>Layout:</strong>
+                    <ul>
+                        <li><strong>Top:</strong> Video player.</li>
+                        <li><strong>Middle:</strong> Ticker-tape chat interface.</li>
+                        <li><strong>Right:</strong> Status pane displaying Garen's stats and the condition/AC of the 3 Orcs and 1 Ogre.</li>
+                    </ul>
+                </li>
+                <li><strong>Styling:</strong> Use Tailwind CSS (conceptually, basic styles embedded here).</li>
+                <li><strong>Interaction Flow:</strong>
+                    <ol>
+                        <li>App loads, Intro video plays.</li>
+                        <li>Video finishes. Chat interface activates. GM describes the scene (farmstead, foes, captives).</li>
+                        <li>Player types command (e.g., "attack orc1") and submits.</li>
+                        <li>Dice roll animation/result appears for attack.</li>
+                        <li>If hit, damage roll animation/result appears. Foe condition updates in status pane.</li>
+                        <li>GM response (narrative, foe actions, results) appears in chat. Orcs/Ogre take turns attacking Garen.</li>
+                        <li>Status pane updates (Garen's HP, Foe Conditions).</li>
+                        <li>Turns cycle until end condition met.</li>
+                        <li>Encounter ends (Win/Loss). Outro video plays.</li>
+                    </ol>
+                </li>
+            </ul>
+
+            <h3>6. Data Structures (JSON)</h3>
+            <ul>
+                <li><strong>6.1: Player Character (<code>playerCharacter.json</code>)</strong>
+                    <pre><code class="language-json">{
+  "name": "Garen",
+  "level": 7,
+  "class": "Fighter",
+  "hp": 60,
+  "maxHp": 60,
+  "ac": 19,
+  "armor": {
+     "name": "Full Plate",
+     "acBonus": 8
+   },
+  "favoredWeapon": {
+    "name": "Longsword",
+    "attackBonus": "+10",
+    "damage": "1d8+3"
+  },
+  "description_for_llm": "Garen is a seasoned human fighter of 7th level, heavily armored in full plate mail and wielding a trusty longsword. He looks determined and dangerous, ready to face the raiders."
+}</code></pre>
+                </li>
+                <li><strong>6.2: Foes (<code>foes.json</code>)</strong> - Array for the specific encounter.
+                    <pre><code class="language-json">[
+  {
+    "id": "orc1",
+    "name": "Grok",
+    "type": "Orc",
+    "level": 1,
+    "hp": 6,
+    "maxHp": 6,
+    "ac": 15,
+     "armor": {
+        "name": "Scale Mail",
+        "acBonus": 4
+     },
+    "condition": "Unharmed ✨",
+    "favoredWeapon": {
+      "name": "Longsword",
+      "attackBonus": "+4",
+      "damage": "1d8+3"
+    },
+    "description_for_llm": "A brutish orc in scale mail, snarling and hefting a longsword.",
+    "isDefeated": false
+  },
+  {
+    "id": "orc2",
+    "name": "Thrag",
+    "type": "Orc",
+    "level": 1,
+    "hp": 6,
+    "maxHp": 6,
+    "ac": 15,
+    "armor": {
+        "name": "Scale Mail",
+        "acBonus": 4
+     },
+    "condition": "Unharmed ✨",
+    "favoredWeapon": {
+      "name": "Longsword",
+      "attackBonus": "+4",
+      "damage": "1d8+3"
+    },
+    "description_for_llm": "Another savage orc, hefting a longsword and eyeing the fighter with malice.",
+    "isDefeated": false
+  },
+   {
+    "id": "orc3",
+    "name": "Zarg",
+    "type": "Orc",
+    "level": 1,
+    "hp": 6,
+    "maxHp": 6,
+    "ac": 15,
+    "armor": {
+        "name": "Scale Mail",
+        "acBonus": 4
+     },
+    "condition": "Unharmed ✨",
+    "favoredWeapon": {
+      "name": "Longsword",
+      "attackBonus": "+4",
+      "damage": "1d8+3"
+    },
+    "description_for_llm": "This orc seems particularly eager for a fight, gripping its longsword tightly.",
+    "isDefeated": false
+  },
+  {
+    "id": "ogre1",
+    "name": "Krug",
+    "type": "Ogre",
+    "level": 4,
+    "hp": 30,
+    "maxHp": 30,
+    "ac": 12,
+     "armor": {
+        "name": "Thick Hide",
+        "acBonus": 3
+     },
+    "condition": "Unharmed ✨",
+    "favoredWeapon": {
+       "name": "Greatclub",
+       "attackBonus": "+8",
+       "damage": "2d8+5"
+     },
+    "description_for_llm": "A hulking ogre, easily twice the height of a man, wearing crude hides and swinging a massive greatclub. It bellows orders at the orcs.",
+    "isDefeated": false
+  }
+]</code></pre>
+                </li>
+                 <li><strong>6.3: Foe Condition Mapping (<code>conditionMapping.json</code>)</strong>
+                    <pre><code class="language-json">{
+  "100":    "Unharmed ✨",
+  "75-99":  "Slightly Hurt 🙂",
+  "25-74":  "Badly Hurt 🤕",
+  "1-24":   "Near Death 🩸",
+  "0":      "Defeated 💀"
+}</code></pre>
+                </li>
+                <li><strong>6.4: LLM Instructions (<code>llmInstructions.json</code>)</strong> - Tailored slightly for the scenario.
+                    <pre><code class="language-json">{
+  "system_prompt": "You are the Game Master (GM) for a fantasy adventure game based on Dungeons & Dragons 3.0 rules. You are running a single combat encounter where the player character, Garen (a 7th level Fighter), confronts 3 Orcs (Grok, Thrag, Zarg) and 1 Ogre (Krug) who have raided a farmstead and taken captives (a farmer, wife, daughter - mention them briefly initially but they are non-combatants). Narrate the scene (burning farmstead backdrop), describe NPC/monster actions vividly (they will attack Garen), respond to Garen's actions (provide target IDs: orc1, orc2, orc3, ogre1), and determine combat outcomes based on the simplified rules provided. Keep responses concise and focused on the current action. Player input will be simple commands like 'attack [target_id]'.",
+  "rules_summary": "Combat Rules: Player turn, then foes turn (Orc1, Orc2, Orc3, Ogre1 order). Attack: d20 + bonus vs AC. If roll >= AC, it hits. Damage: Roll damage dice + bonus. Player HP is tracked exactly. Foe HP is tracked, but only their general condition (Unharmed, Slightly Hurt, Badly Hurt, Near Death, Defeated) is revealed to the player via the UI (you don't need to state it explicitly unless describing an obvious injury). Foes are defeated at 0 HP. Focus foe actions on attacking Garen.",
+  "encounter_goal_player": "Defeat Grok, Thrag, Zarg, and Krug.",
+  "encounter_goal_foes": "Defeat Garen."
+}</code></pre>
+                </li>
+            </ul>
+
+            <h3>7. Technical Specifications</h3>
+            <ul>
+                <li><strong>Frontend:</strong> Javascript (ES6+), HTML5, Tailwind CSS (conceptually, for styling)</li>
+                <li><strong>3D Engine:</strong> Three.js (Minimal initial use - placeholder canvas/scene setup).</li>
+                <li><strong>LLM API:</strong> OpenAI API or Groq API (To be configured).</li>
+                <li><strong>State Management:</strong> In-memory Javascript objects/variables. Simple state management pattern.</li>
+                <li><strong>Hosting:</strong> Static web hosting (for eventual deployment, local development initially).</li>
+                <li><strong>Build Tools:</strong> Optional (e.g., Vite).</li>
+            </ul>
+
+            <h3>8. Non-Functional Requirements</h3>
+            <ul>
+                <li><strong>Simplicity (KISS):</strong> Implement only essential features for this specific encounter.</li>
+                <li><strong>Maintainability (SOLID):</strong> Structure code with clear separation (UI, Game Logic, API Service).</li>
+                <li><strong>Testability (TDD):</strong> Aim for testable units (Dice Roller, Combat Logic). Write unit tests if feasible within the timeframe.</li>
+                <li><strong>Performance:</strong> Handle LLM calls asynchronously. Basic web performance.</li>
+                <li><strong>Scalability:</strong> Design with future potential in mind (data persistence hooks, etc.), but don't implement now.</li>
+            </ul>
+
+            <h3>9. Future Considerations (Out of Scope for MVP 1.0)</h3>
+            <ul>
+                <li>Saving/Loading game state.</li>
+                <li>Advanced D&D rules (Skills, Saves, Spells, Movement).</li>
+                <li>Inventory, Loot.</li>
+                <li>Multiple linked encounters, narrative branching.</li>
+                <li>Natural Language Input.</li>
+                <li>Meaningful Three.js visualization.</li>
+                <li>Audio.</li>
+                <li>Multiplayer.</li>
+                <li>NPC interaction beyond combat (e.g., freeing captives).</li>
+            </ul>
+
+            <h3>10. Success Metrics (MVP)</h3>
+            <ul>
+                <li>Application runs, plays intro video for Farmstead Raid.</li>
+                <li>LLM GM sets the scene correctly (farmstead, Garen, Orcs, Ogre, captives mentioned).</li>
+                <li>Player can target and attack Orcs/Ogre by ID; commands are processed.</li>
+                <li>Dice rolls (d20, damage) function and display correctly per JSON stats.</li>
+                <li>Combat mechanics update Garen's HP and Foe conditions accurately.</li>
+                <li>Status pane reflects the state of Garen, Grok, Thrag, Zarg, and Krug.</li>
+                <li>Encounter concludes when Garen wins (all foes defeated) or loses (HP &lt;= 0).</li>
+                <li>Correct Win/Loss video plays.</li>
+                <li>Code structure shows good separation of concerns.</li>
+                <li>Development completed within ~1 day target.</li>
+            </ul>
+        </section>
+        <!-- End PRD Section -->
+
+        <hr class="section-separator">
+
+        <!-- Sprint Plan Section -->
+        <section id="sprint-plan">
+            <h2>Sprint Plan: Adventure MVP 1.0 (Farmstead Raid POC)</h2>
+
+            <p><strong>Sprint Goal:</strong> Demonstrate the core gameplay loop (Intro Video -> LLM-driven Text Combat -> Outro Video) for the specified Farmstead Raid scenario, running successfully on <code>localhost</code>. This includes functional simplified D&D 3.0 combat, dynamic status updates, and basic LLM integration for GM narration and foe actions.</p>
+
+            <p><strong>Sprint Duration:</strong> ~1 Day (approx. 6-8 focused working hours)</p>
+
+            <p><strong>Team:</strong> 1 Developer</p>
+
+            <p><strong>Prerequisites:</strong></p>
+            <ul>
+                <li>Node.js and npm/yarn installed.</li>
+                <li>Chosen LLM API Key (OpenAI or Groq) obtained and ready.</li>
+                <li>Placeholder <code>.mp4</code> video files (Intro, Win, Loss) available locally.</li>
+                <li>Basic familiarity with Javascript, HTML, CSS, and chosen LLM API.</li>
+                <li>Code Editor (e.g., VS Code).</li>
+            </ul>
+
+            <hr class="phase-separator">
+
+            <h3>Sprint Backlog (Tasks)</h3>
+            <p><em>(Tasks ordered logically, dependencies considered. Estimates are rough guides for a ~1-day target.)</em></p>
+
+            <h4>Phase 1: Setup & Foundation (Est. 1.5 hours)</h4>
+            <ol>
+                <li><strong>[Task-01] Project Setup:</strong>
+                    <ul>
+                        <li>Create project directory.</li>
+                        <li>Initialize npm (<code>npm init -y</code>).</li>
+                        <li>Setup basic <code>index.html</code>, <code>style.css</code>, <code>script.js</code>.</li>
+                        <li>Setup basic CSS (e.g., using embedded <code>&lt;style&gt;</code> tag as in this doc, or link external <code>style.css</code>). No need for Tailwind build process for this simple local POC unless preferred.</li>
+                        <li><em>(Optional):</em> Use Vite (<code>npm create vite@latest</code>) for dev server.</li>
+                    </ul>
+                </li>
+                <li><strong>[Task-02] Basic HTML Structure:</strong>
+                    <ul>
+                        <li>Create main divs in <code>index.html</code> for: Video Player Area, Chat Interface Area, Status Pane Area.</li>
+                        <li>Apply basic layout styles (flexbox/grid).</li>
+                    </ul>
+                </li>
+                <li><strong>[Task-03] Data Loading:</strong>
+                    <ul>
+                        <li>Create the JSON files (<code>playerCharacter.json</code>, <code>foes.json</code>, <code>conditionMapping.json</code>, <code>llmInstructions.json</code>) with the defined structures and data.</li>
+                        <li>Write Javascript functions to fetch/load this JSON data into memory on application start (Use <code>fetch</code> API for local files, requires running from a local server like Vite's or Python's `http.server` due to CORS if using `file:///` directly).</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <hr class="phase-separator">
+
+            <h4>Phase 2: Core UI & Interaction (Est. 2 hours)</h4>
+            <ol start="4">
+                <li><strong>[Task-04] Video Player Module:</strong>
+                    <ul>
+                        <li>Implement basic HTML5 <code>&lt;video&gt;</code> element.</li>
+                        <li>Write JS functions to:
+                            <ul>
+                                <li>Load and play the Intro video on start.</li>
+                                <li>Detect video end (<code>ended</code> event).</li>
+                                <li>Load and play Win/Loss videos when triggered later.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>[Task-05] Status Display Module:</strong>
+                    <ul>
+                        <li>Write JS functions to render data from the loaded JSON into the Status Pane HTML.</li>
+                        <li>Display Garen's initial HP/AC.</li>
+                        <li>Display initial Orc/Ogre Name, Type, AC, and Condition (using <code>conditionMapping</code>).</li>
+                        <li>Implement an <code>updateStatusDisplay()</code> function to refresh this pane (will be called after combat actions).</li>
+                    </ul>
+                </li>
+                <li><strong>[Task-06] Chat Interface Module (Basic):</strong>
+                    <ul>
+                        <li>Implement the chat log display area (e.g., a <code>div</code> with <code>overflow-y: scroll</code>).</li>
+                        <li>Implement the text input field and a submit button (or listen for Enter key).</li>
+                        <li>Write a JS function <code>addMessageToChat(sender, message)</code> to append formatted messages (e.g., "GM:", "Garen:", "System:") to the chat log. Ensure auto-scrolling.</li>
+                        <li><em>(Stretch):</em> Implement basic ticker-tape effect (simple delay per character/word).</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <hr class="phase-separator">
+
+            <h4>Phase 3: Game Logic & Combat (Est. 2.5 hours)</h4>
+            <ol start="7">
+                <li><strong>[Task-07] Dice Rolling Utility:</strong>
+                    <ul>
+                        <li>Create a <code>diceRoller.js</code> module (or functions within main script).</li>
+                        <li>Implement a function <code>rollDice(diceString)</code> (e.g., "1d20", "2d8+5") that parses the string and returns the numerical result.</li>
+                        <li>Integrate basic text animation output to the chat log when rolling (e.g., <code>addMessageToChat("System", "Rolling d20... 🎲")</code> followed by result).</li>
+                    </ul>
+                </li>
+                <li><strong>[Task-08] Encounter Logic Engine (State & Turns):</strong>
+                    <ul>
+                        <li>Create an <code>encounterLogic.js</code> module (or integrate into main script).</li>
+                        <li>Define encounter states (<code>PRE_ENCOUNTER</code>, <code>PLAYER_TURN</code>, <code>GM_TURN</code>, etc.).</li>
+                        <li>Manage current game state.</li>
+                        <li>Implement basic turn management (Player -> Foes -> Player).</li>
+                        <li>Trigger state transitions (e.g., after intro video -> GM turn for intro text; after player input -> GM turn).</li>
+                    </ul>
+                </li>
+                <li><strong>[Task-09] Combat Mechanics:</strong>
+                    <ul>
+                        <li>Implement <code>handlePlayerAttack(targetId)</code> function:
+                            <ul>
+                                <li>Get target data.</li>
+                                <li>Roll attack (d20 + Garen's bonus) vs. target AC.</li>
+                                <li>If hit, roll damage (Garen's damage dice).</li>
+                                <li>Apply damage (update foe HP in the loaded data).</li>
+                                <li>Update foe condition (<code>conditionMapping</code>) and <code>isDefeated</code> flag.</li>
+                                <li>Log results to chat.</li>
+                                <li>Update status display.</li>
+                                <li>Check for win condition (all foes defeated).</li>
+                            </ul>
+                        </li>
+                        <li>Implement HP updates for Garen (when attacked later).</li>
+                        <li>Implement win/loss condition checking.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <hr class="phase-separator">
+
+            <h4>Phase 4: LLM Integration & Testing (Est. 2 hours)</h4>
+            <ol start="10">
+                <li><strong>[Task-10] LLM Service Wrapper:</strong>
+                    <ul>
+                        <li>Create an <code>llmService.js</code> module (or integrate).</li>
+                        <li>Write an <code>async function getGmResponse(prompt)</code>:
+                            <ul>
+                                <li>Takes the constructed prompt string.</li>
+                                <li>Makes an API call to the chosen LLM (OpenAI/Groq) using <code>fetch</code>. Include API Key securely (e.g., prompt user, environment variable if using Vite, otherwise hardcode temporarily for pure local POC, <strong>use with extreme caution and remove before sharing/committing</strong>).</li>
+                                <li>Parses the response to extract the GM's text reply.</li>
+                                <li>Returns the text reply.</li>
+                            </ul>
+                        </li>
+                        <li>Implement basic error handling for the API call.</li>
+                    </ul>
+                </li>
+                <li><strong>[Task-11] Integrate LLM into Game Loop:</strong>
+                    <ul>
+                        <li>Modify <code>EncounterLogic</code>:
+                            <ul>
+                                <li>On encounter start (after intro video), construct an initial prompt (using <code>llmInstructions</code>, character/foe descriptions) and call <code>getGmResponse</code>. Add the response to the chat. Transition to <code>PLAYER_TURN</code>.</li>
+                                <li>After player submits command, construct a prompt including the player's action, current game state (HP, conditions), and instructions.</li>
+                                <li>Call <code>getGmResponse</code>.</li>
+                                <li>Add LLM response (narration, foe action description) to chat.</li>
+                                <li><strong>Parse LLM Response for Foe Action:</strong> Keep this simple for MVP. Assume the LLM response will contain text like "The Ogre attacks Garen!". Implement basic logic (e.g., string search for "attacks Garen" and identifying the attacker name/type mentioned just before it) to identify which foe attacks.</li>
+                                <li><strong>Trigger Foe Combat:</strong> Based on parsed action, call a function like <code>executeFoeAttack(foeId)</code> which uses the Dice Roller and Combat Mechanics (Task-09) to resolve the foe's attack against Garen. Update Garen's HP, update status display, check loss condition.</li>
+                                <li>Transition back to <code>PLAYER_TURN</code> (after all active foes have acted based on LLM response).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>[Task-12] Local Testing & Polish:</strong>
+                    <ul>
+                        <li>Run the application locally (using a local server is recommended for <code>fetch</code> to work reliably with local files).</li>
+                        <li>Perform end-to-end manual testing of the entire loop: Intro Video -> Combat Turns (Player Attack, Foe Attack via LLM) -> Status Updates -> Win/Loss Check -> Outro Video.</li>
+                        <li>Fix obvious bugs.</li>
+                        <li>Minor styling adjustments for readability.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <hr class="phase-separator">
+
+            <h3>Potential Risks & Mitigation</h3>
+            <ul>
+                <li><strong>LLM API Complexity/Latency:</strong> API calls might be slow or return unexpected formats. <em>Mitigation:</em> Start with simple prompts. Handle API calls asynchronously. Have fallback/error messages. Basic parsing.</li>
+                <li><strong>Javascript Complexity:</strong> Managing state and async operations. <em>Mitigation:</em> Keep functions focused. Use <code>async/await</code>. Simple in-memory state.</li>
+                <li><strong>Local File Access (`fetch`):</strong> Using <code>fetch</code> on local files via <code>file:///</code> often fails due to CORS. <em>Mitigation:</em> Run a simple local HTTP server (e.g., <code>python -m http.server</code> in the project directory, or use Vite's dev server).</li>
+                <li><strong>Time Constraint:</strong> 1 Day is tight. <em>Mitigation:</em> Prioritize core loop. Defer polish. KISS.</li>
+            </ul>
+
+            <hr class="phase-separator">
+
+            <h3>Definition of Done (for this Sprint)</h3>
+            <ul>
+                <li>The application runs correctly when served locally (e.g., <code>http://localhost:XXXX</code>).</li>
+                <li>The Intro video plays automatically and stops.</li>
+                <li>Initial game state (Garen vs. Orcs/Ogre) displayed in status pane.</li>
+                <li>LLM provides initial scene description in chat.</li>
+                <li>Player can type "attack [target_id]" and submit.</li>
+                <li>Player attacks resolved (dice, AC, damage, condition update), results logged & displayed.</li>
+                <li>LLM receives context, response (including foe actions) displayed.</li>
+                <li>Foe attacks resolved against player (AC, damage, HP update), results logged & displayed.</li>
+                <li>Win/Loss conditions correctly identified.</li>
+                <li>Corresponding Win/Loss video plays upon encounter conclusion.</li>
+                <li>Code shows basic separation of concerns.</li>
+                <li>No major Javascript errors during standard playthrough.</li>
+            </ul>
+        </section>
+        <!-- End Sprint Plan Section -->
+
+    </div> <!-- End Container -->
+</body>
+</html>
