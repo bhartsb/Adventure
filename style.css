@@ -19,20 +19,15 @@ body, html {
 /* --- Video Styling --- */
 #video-container {
     width: 100%;
-    /* Adjust max-height if needed, e.g., 60% of viewport height */
-    /* max-height: 60vh;  */
     background-color: #000; /* Black background for video area */
-    position: relative; /* For potential future overlays */
-    flex-shrink: 0; /* Don't let the video container shrink */
+    position: relative;
+    flex-shrink: 0;
 }
 
 #intro-video {
     display: block; /* Remove extra space below video */
     width: 100%;
     height: auto; /* Maintain aspect ratio */
-    /* If you want the video to potentially fill height instead: */
-    /* height: 100%; */
-    /* object-fit: cover; */ /* Covers the container, might crop */
     max-height: 60vh; /* Limit video height */
     object-fit: contain; /* Ensure whole video visible */
 }
@@ -43,46 +38,17 @@ body, html {
     flex-grow: 1; /* Allow this section to fill remaining vertical space */
     border-top: 2px solid #34495e; /* Separator line */
     background-color: #34495e; /* Slightly lighter background */
-    overflow: hidden; /* Prevent internal overflow from affecting layout */
+    overflow: hidden;
 }
 
 .hidden {
     display: none !important; /* Utility class to hide elements */
 }
 
-/* --- Placeholders --- */
-#chat-container, #status-container {
-    padding: 15px;
-    border: 1px dashed #7f8c8d; /* Dashed border for placeholders */
-    margin: 10px;
-    overflow-y: auto; /* Allow scrolling if content overflows */
-}
-
-#chat-container {
-    flex: 3; /* Chat takes up more space (e.g., 3/4) */
-    background-color: #2c3e50; /* Match outer background */
-    display: flex; /* Use flex for future input layout */
-    flex-direction: column;
-}
-
+/* --- Status Pane Styling --- */
 #status-container {
     flex: 1; /* Status takes less space (e.g., 1/4) */
-    background-color: #2c3e50; /* Match outer background */
-}
-
-/* Add some placeholder text styling */
-#chat-container p, #status-container p {
-    color: #7f8c8d;
-    font-style: italic;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Add to your existing style.css */
-
-#status-container {
-    /* flex: 1; */ /* Keep existing flex setting */
-    /* background-color: #2c3e50; */ /* Keep existing bg */
+    background-color: #2c3e50;
     padding: 15px;
     border-left: 1px solid #4a6a8a; /* Add a separator from chat */
     overflow-y: auto;
@@ -99,9 +65,9 @@ body, html {
 .status-section p {
     margin: 5px 0;
     font-size: 0.9em;
-    color: #bdc3c7; /* Lighter gray for details */
-    text-align: left; /* Override placeholder center align */
-    font-style: normal; /* Override placeholder italic */
+    color: #bdc3c7;
+    text-align: left;
+    font-style: normal;
 }
 
 .status-section hr {
@@ -139,28 +105,78 @@ body, html {
     text-decoration: line-through;
 }
 
-/* Basic Chat Styling */
+
+/* --- Chat Area Styling --- */
 #chat-container {
-    /* flex: 3; */ /* Keep existing */
-    /* background-color: #2c3e50; */ /* Keep existing */
-    padding: 15px;
-    overflow-y: auto;
+    flex: 3; /* Chat takes up more space (e.g., 3/4) */
     display: flex;
-    flex-direction: column;
-    /* Remove placeholder styling if needed */
-    border: none; /* Remove placeholder border */
-    margin: 10px; /* Reset margin if needed */
+    flex-direction: column; /* Stack log and input vertically */
+    padding: 0;
+    margin: 10px;
+    background-color: #2c3e50;
 }
 
-#chat-container p {
+#chat-log {
+    flex-grow: 1; /* Allow log to take up most space */
+    overflow-y: auto; /* Enable scrolling for the log */
+    padding: 15px;
+    border: 1px solid #34495e; /* Optional border */
+    margin-bottom: 10px; /* Space between log and input */
+}
+
+#chat-log p {
     margin: 5px 0 10px 0;
     line-height: 1.4;
-    color: #ecf0f1; /* Ensure chat text is light */
-    text-align: left; /* Normal text alignment */
-    font-style: normal; /* Normal style */
+    color: #ecf0f1;
+    text-align: left;
+    font-style: normal;
 }
 
-#chat-container p strong {
-    color: #3498db; /* Color for sender name */
+#chat-log p strong {
+    color: #3498db;
     margin-right: 5px;
+}
+
+#input-area {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid #34495e;
+    background-color: #34495e;
+    flex-shrink: 0;
+}
+
+#player-input {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border: 1px solid #7f8c8d;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+#player-input:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#submit-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#submit-button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+#submit-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
 }
