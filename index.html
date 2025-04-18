@@ -8,33 +8,38 @@
 </head>
 <body>
     <div id="game-container">
-        <!-- Video Player Area -->
+        <!-- Intro Video Player Area -->
         <div id="video-container">
             <video id="intro-video" src="assets/EncounterIntro.mp4" autoplay muted playsinline>
                 Your browser does not support the video tag.
             </video>
         </div>
 
-        <!-- Area below video, holding chat and status -->
+        <!-- Main Gameplay Interface (Chat & Status) -->
         <div id="main-interface" class="hidden">
             <!-- Chat Interface -->
             <div id="chat-container">
-                <!-- Chat log messages will be appended here by JS -->
                 <div id="chat-log">
                     <p><em>Loading chat...</em></p>
                 </div>
-                <!-- Player Input Area -->
                 <div id="input-area">
-                    <input type="text" id="player-input" placeholder="Enter command (e.g., attack orc1)..." disabled>
+                    <input type="text" id="player-input" placeholder="Enter command..." disabled>
                     <button id="submit-button" disabled>Send</button>
                 </div>
             </div>
-
             <!-- Status Pane -->
             <div id="status-container">
                 <p>Status Pane Placeholder...</p>
             </div>
         </div>
+
+        <!-- Outro Video Player Area (Initially Hidden Overlay) -->
+        <div id="outro-video-container" class="hidden overlay">
+             <video id="outro-video" playsinline> <!-- No autoplay/muted needed here, triggered manually -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
