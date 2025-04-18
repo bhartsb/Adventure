@@ -1,0 +1,7 @@
+{
+    "100":    "Unharmed ✨",
+    "75-99":  "Slightly Hurt 🙂",
+    "25-74":  "Badly Hurt 🤕",
+    "1-24":   "Near Death 🩸",
+    "0":      "Defeated 💀"
+  }

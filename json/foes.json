@@ -1,0 +1,26 @@
+[
+    {
+      "id": "orc1", "name": "Grok", "type": "Orc", "level": 1, "hp": 6, "maxHp": 6, "ac": 15,
+      "armor": {"name": "Scale Mail", "acBonus": 4 },
+      "condition": "100", "favoredWeapon": {"name": "Longsword", "attackBonus": "+4", "damage": "1d8+3"},
+      "description_for_llm": "A brutish orc in scale mail, snarling and hefting a longsword.", "isDefeated": false
+    },
+    {
+      "id": "orc2", "name": "Thrag", "type": "Orc", "level": 1, "hp": 6, "maxHp": 6, "ac": 15,
+      "armor": {"name": "Scale Mail", "acBonus": 4 },
+      "condition": "100", "favoredWeapon": {"name": "Longsword", "attackBonus": "+4", "damage": "1d8+3"},
+      "description_for_llm": "Another savage orc, hefting a longsword and eyeing the fighter with malice.", "isDefeated": false
+    },
+    {
+      "id": "orc3", "name": "Zarg", "type": "Orc", "level": 1, "hp": 6, "maxHp": 6, "ac": 15,
+      "armor": {"name": "Scale Mail", "acBonus": 4 },
+      "condition": "100", "favoredWeapon": {"name": "Longsword", "attackBonus": "+4", "damage": "1d8+3"},
+      "description_for_llm": "This orc seems particularly eager for a fight, gripping its longsword tightly.", "isDefeated": false
+    },
+    {
+      "id": "ogre1", "name": "Krug", "type": "Ogre", "level": 4, "hp": 30, "maxHp": 30, "ac": 12,
+      "armor": {"name": "Thick Hide", "acBonus": 3 },
+      "condition": "100", "favoredWeapon": {"name": "Greatclub", "attackBonus": "+8", "damage": "2d8+5"},
+      "description_for_llm": "A hulking ogre, easily twice the height of a man, wearing crude hides and swinging a massive greatclub. It bellows orders at the orcs.", "isDefeated": false
+    }
+  ]

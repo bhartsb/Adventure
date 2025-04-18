@@ -1,0 +1,6 @@
+{
+    "system_prompt": "You are the Game Master (GM) ... [rest of prompt] ...",
+    "rules_summary": "Combat Rules: Player turn, then foes turn ... [rest of rules] ...",
+    "encounter_goal_player": "Defeat Grok, Thrag, Zarg, and Krug.",
+    "encounter_goal_foes": "Defeat Garen."
+  }
